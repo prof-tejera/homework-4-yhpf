@@ -1,0 +1,64 @@
+.calculator {
+    border: 0.1rem solid black;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    box-shadow: 2px 3px #A9A9A9; /* dark grey */
+    background-color: #A2CFFE; /* baby blue */
+}
+
+.screen {
+    padding: 1rem;
+    border: 0.1rem solid black;
+    border-radius: 0.1rem;
+    width: 14rem;
+    height: 4rem;
+    font-size: 3rem;
+    text-align: right;
+    margin-bottom: 10px;
+    background-color: #FFFFFF; /* white */
+    font-family: 'Offside', sans-serif;
+}
+
+.keypad {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    height: 2rem;
+    width: 3rem;
+    margin: 0.5rem;
+    border: 0.1rem solid #000000; /* black */
+    border-radius: 0.3rem;
+    box-shadow: 2px 3px #A9A9A9; /* dark grey */
+}
+
+.number {
+    background-color: #000000; /* black */
+    color: #FFFFFF; /* white */
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.operator {
+    background-color: #FFFFFF; /* white */
+    color: #000000; /* black */
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.calculate {
+    background-color: #00D100; /* green */
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.clear {
+    background-color: #FF0000; /* red */
+    font-size: 1.2rem;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
