@@ -42,7 +42,6 @@ const Calculator = () => {
         break;
       case '/':
         setScreenDisplay(number1 / number2);
-        break;
     }
     setOperator("");
   };
