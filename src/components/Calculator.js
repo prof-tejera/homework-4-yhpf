@@ -14,16 +14,18 @@ const Calculator = () => {
   /** TODO: what happens when I click a number? */
   const handleNumberClick = (e) => {    
     const number = parseInt(e.target.value);
-    setScreenDisplay(number);
+    const newNumber = screenDisplay*10+number;
+    setScreenDisplay(newNumber);
     if (operator === "") {
-      setNumber1(number);
+      setNumber1(newNumber);
     } else {
-      setNumber2(number);
+      setNumber2(newNumber);
     }
   };
 
   /** TODO: what happens when I click an operation? */
   const handleOperationClick = (e) => {
+    setScreenDisplay(0);
     setOperator(e.target.value);
   };
 
