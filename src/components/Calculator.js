@@ -31,9 +31,6 @@ const Calculator = () => {
 
   const handleOperationCalculate = () => {
     switch (operator) {
-      case '+':
-        setScreenDisplay(number1 + number2);
-        break;
       case '-':
         setScreenDisplay(number1 - number2);
         break;
@@ -42,6 +39,9 @@ const Calculator = () => {
         break;
       case '/':
         setScreenDisplay(number1 / number2);
+        break;
+      default: // default will be + in this case
+        setScreenDisplay(number1 + number2);
     }
     setOperator("");
   };
