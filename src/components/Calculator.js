@@ -1,39 +1,87 @@
 import Number from "./Number";
 import Operation from "./Operation";
 import Screen from "./Screen";
+import React, {useState} from "react";
+import './Calculator.css';
 
 const Calculator = () => {
   /** TODO: Here is where you are going to keep track of calculator state */
+  const [screenDisplay, setScreenDisplay] = useState(0);
+  const [number1, setNumber1] = useState(0);
+  const [number2, setNumber2] = useState(0);
+  const [operator, setOperator] = useState("");
 
   /** TODO: what happens when I click a number? */
-  const handleNumberClick = () => {};
+  const handleNumberClick = (e) => {    
+    const number = parseInt(e.target.value);
+    const newNumber = screenDisplay*10+number;
+    setScreenDisplay(newNumber);
+    if (operator === "") {
+      setNumber1(newNumber);
+    } else {
+      setNumber2(newNumber);
+    }
+  };
 
   /** TODO: what happens when I click an operation? */
-  const handleOperationClick = () => {};
+  const handleOperationClick = (e) => {
+    setScreenDisplay(0);
+    setOperator(e.target.value);
+  };
+
+  const handleOperationCalculate = () => {
+    switch (operator) {
+      case '-':
+        setScreenDisplay(number1 - number2);
+        break;
+      case 'x':
+        setScreenDisplay(number1 * number2);
+        break;
+      case '/':
+        setScreenDisplay(number1 / number2);
+        break;
+      default: // default will be + in this case
+        setScreenDisplay(number1 + number2);
+    }
+    setOperator("");
+  };
+
+  const handleOperationClear = () => {
+    setScreenDisplay(0);
+    setNumber1(0);
+    setNumber2(0);
+    setOperator("");
+  }
 
   return (
-    <div>
-      <Screen value="123" />
-      <div style={{ display: "flex" }}>
+    <div className="calculator">
+      <div className="screen" >
+        <Screen value={screenDisplay} />
+      </div>
+      <div className="keypad">
         <div>
-          <Number value={0} onClick={handleNumberClick} />
-          <Number value={1} onClick={handleNumberClick} />
-          <Number value={2} onClick={handleNumberClick} />
-          <Number value={3} onClick={handleNumberClick} />
-          <Number value={4} onClick={handleNumberClick} />
-          <Number value={5} onClick={handleNumberClick} />
-          <Number value={6} onClick={handleNumberClick} />
-          <Number value={7} onClick={handleNumberClick} />
-          <Number value={8} onClick={handleNumberClick} />
-          <Number value={9} onClick={handleNumberClick} />
+          <Number value={7} onClick={handleNumberClick} className="number" />
+          <Number value={4} onClick={handleNumberClick} className="number" />
+          <Number value={1} onClick={handleNumberClick} className="number" />
+          <Operation value="C" onClick={handleOperationClear} className="clear" />
         </div>
-        <div style={{ paddingLeft: 10 }}>
-          <Operation value="+" onClick={handleOperationClick} />
-          <Operation value="/" onClick={handleOperationClick} />
-          <Operation value="x" onClick={handleOperationClick} />
-          <Operation value="-" onClick={handleOperationClick} />
-          <Operation value="=" onClick={handleOperationClick} />
-          <Operation value="clear" onClick={handleOperationClick} />
+        <div>
+          <Number value={8} onClick={handleNumberClick} className="number" />
+          <Number value={5} onClick={handleNumberClick} className="number" />
+          <Number value={2} onClick={handleNumberClick} className="number" />
+          <Number value={0} onClick={handleNumberClick} className="number" />
+        </div>
+        <div>
+          <Number value={9} onClick={handleNumberClick} className="number" />
+          <Number value={6} onClick={handleNumberClick} className="number" />
+          <Number value={3} onClick={handleNumberClick} className="number" />
+          <Operation value="=" onClick={handleOperationCalculate} className="calculate" />
+        </div>
+        <div>
+          <Operation value="/" onClick={handleOperationClick} className="operator"/>
+          <Operation value="x" onClick={handleOperationClick} className="operator" />
+          <Operation value="-" onClick={handleOperationClick} className="operator" />
+          <Operation value="+" onClick={handleOperationClick} className="operator" />
         </div>
       </div>
     </div>
