@@ -1,14 +1,8 @@
-const Number = ({ value, onClick }) => {
+const Number = ({ value, onClick, className }) => {
   /** TODO: What happens when a user clicks a number, what do we want to pass to our parent? */
   return (
-    <div
-      style={{
-        padding: 10,
-        border: "1px solid black",
-        width: 60,
-      }}
-    >
-      {value}
+    <div>
+      <button onClick={onClick} value={value} className={className}>{value}</button>
     </div>
   );
 };
